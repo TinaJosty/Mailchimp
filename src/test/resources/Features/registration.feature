@@ -2,19 +2,18 @@ Feature: registration
   In order to join the community I need to create an account
 
 
-
-  Scenario: Create user
+  Scenario Outline: Create user
     Given User have navigated to signup page at mailchimp
-    And User has typed the <mailAddress>
-    And User has typed the <username>
-    And User has chosen a <password>
-    And User has rejected <cookies>
-    When User has pressed the <Sign Up Button>
-    Then Account should be created and <Verified>
+    * User has typed the mailaddress <mailAddress>
+    * User has typed the username <username>
+    * User has chosen a password
+    * User has rejected cookies
+    When User has pressed the Sign Up Button
+    Then User should be shown appropriate <message>
+    Examples:
+      | mailAddress | username         | message            |
+      | ValidEmail  | UserName         | Welcome            |
+      | ValidEmail  | LongUserName<100 | ToLongErrorMessage |
+      | NoEmail     | UserName         | EnterValueMessage  |
+      | ValidEmail  | ExistingUserName | AlreadyUsedMessage |
 
-
-
-    Scenario: Create user with long username(<100)
-
-      Scenario: Create users with username already existing
-        Scenario: Create users without an email

@@ -16,7 +16,7 @@ public class Generate {
         for (int i = 0; i < lenght; i++)
             email.append(chars.charAt(rnd.nextInt(chars.length())));
         email.append(time());
-        return email.toString();
+        return email.toString()+"@emailen.com";
 
     }
 
@@ -32,16 +32,6 @@ public class Generate {
         return userName.toString();
     }
 
-    public String randomPassword(int lenght){
-        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#&/*+-!";
-
-        Random rnd = new Random();
-        StringBuilder passWord = new StringBuilder(lenght);
-        for (int i = 0; i < lenght; i++)
-            passWord.append(chars.charAt(rnd.nextInt(chars.length())));
-
-        return passWord.toString();
-    }
 
 
     public String randomUpperCase(int lenght) {
@@ -55,7 +45,7 @@ public class Generate {
         return upperCase.toString();
 
     }
-// Random methods split into different chars
+
     public String randomLowerCase(int lenght) {
         String chars = "abcdefghijklmnopqrstuvwxyz";
 
